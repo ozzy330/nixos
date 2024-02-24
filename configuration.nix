@@ -150,7 +150,7 @@
 
   environment.shellAliases = {
   chnix = "nvim /etc/nixos/configuration.nix";
-  swnix = "cmmnix $argv[1]; sudo nixos-rebuild switch";
+  swnix = "cmmnix $argv[1]; shift; sudo nixos-rebuild switch";
   };
 
   virtualisation.libvirtd.enable = true;
