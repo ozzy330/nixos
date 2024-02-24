@@ -149,10 +149,10 @@
     function chnix
       nvim /etc/nixos/configuration.nix
     end
-    function chnix
-      echo $argv[1]
-      shift
-      echo #argv[1]
+    function swnix
+      cmmnix $argv[1]
+      set argv[1] ""
+      sudo nixos-rebuild switch
     end
   '';
 
