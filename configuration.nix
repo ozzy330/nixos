@@ -146,12 +146,20 @@
       git commit -m $argv[1]
       popd
     end
+    function chnix
+      nvim /etc/nixos/configuration.nix
+    end
+    function chnix
+      echo $argv[1]
+      shift
+      echo #argv[1]
+    end
   '';
 
-  environment.shellAliases = {
-  chnix = "nvim /etc/nixos/configuration.nix";
-  swnix = "cmmnix $argv[1]; shift; sudo nixos-rebuild switch";
-  };
+  # environment.shellAliases = {
+  # chnix = "nvim /etc/nixos/configuration.nix";
+  # swnix = "cmmnix $argv[1]; shift; sudo nixos-rebuild switch";
+  # };
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
