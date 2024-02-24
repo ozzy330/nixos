@@ -134,9 +134,23 @@
   programs.fish.enable = true;
   programs.starship.enable = true;
   users.defaultUserShell = pkgs.fish;
+  programs.fish.shellInit = ''
+    function upnix
+      pushd ~/.config/nixos/
+        git push
+      popd
+    end
+    function cmmnix
+      pushd ~/.config/nixos/
+      git add configuration.nix
+      git commit -m $argv[1]
+      popd
+    end
+  '';
+
   environment.shellAliases = {
-  chnix = "sudo nvim /etc/nixos/configuration.nix";
-  swnix = "sudo nixos-rebuild switch";
+  chnix = "nvim /etc/nixos/configuration.nix";
+  swnix = "cmmnix $argv[1]; sudo nixos-rebuild switch";
   };
 
   virtualisation.libvirtd.enable = true;
