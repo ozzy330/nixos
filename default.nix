@@ -114,7 +114,36 @@
     binutils
     axel
     xclip
+    glow
+    gnome.gnome-tweaks
+    cloudflared
+    cloudflare-warp
+    podman
+    gnome.gnome-boxes
+    teamviewer
+    moonlight-qt
+    motrix
+    telegram-desktop
   ];
+
+  services.teamviewer.enable = true;
+
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
+
+  programs.fish.enable = true;
+  programs.starship.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  environment.shellAliases = {
+  chnix = "sudo nvim /etc/nixos/configuration.nix";
+  swnix = "sudo nixos-rebuild switch";
+  };
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  virtualisation.podman.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
