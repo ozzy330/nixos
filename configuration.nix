@@ -119,6 +119,7 @@
     cloudflared
     cloudflare-warp
     podman
+    qemu
     gnome.gnome-boxes
     teamviewer
     moonlight-qt
