@@ -127,6 +127,23 @@
     telegram-desktop
   ];
 
+  programs.neovim.plugins = [ 
+    (pkgs.neovim.override {
+      configure = {
+        packages.myPlugins = with pkgs.vimPlugins; {
+          start = [
+            (nvim-treesitter.withPlugins (
+              plugins: with plugins; [
+                nix
+                python
+              ]
+            ))
+          ];
+        };
+      };
+    })
+  ];
+
   services.teamviewer.enable = true;
 
   programs.neovim.enable = true;
