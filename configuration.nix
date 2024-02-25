@@ -128,16 +128,6 @@
     telegram-desktop
   ];
 
-neovim.override {
-  configure = {
-    packages.myVimPackage = with pkgs.vimPlugins; {
-      start = [ ];
-    };
-  };
-}
-
-  services.teamviewer.enable = true;
-
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
