@@ -126,6 +126,7 @@
     moonlight-qt
     motrix
     telegram-desktop
+    wpsoffice
     stremio
   ];
 
