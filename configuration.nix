@@ -113,7 +113,7 @@
     libgccjit
     binutils
     axel
-    ffmpeg
+    jellyfin-ffmpeg
     xclip
     glow
     gnome.gnome-tweaks
