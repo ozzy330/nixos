@@ -113,6 +113,7 @@
     libgccjit
     binutils
     axel
+    ffmpeg
     xclip
     glow
     gnome.gnome-tweaks
@@ -127,22 +128,13 @@
     telegram-desktop
   ];
 
-  programs.neovim.plugins = [ 
-    (pkgs.neovim.override {
-      configure = {
-        packages.myPlugins = with pkgs.vimPlugins; {
-          start = [
-            (nvim-treesitter.withPlugins (
-              plugins: with plugins; [
-                nix
-                python
-              ]
-            ))
-          ];
-        };
-      };
-    })
-  ];
+neovim.override {
+  configure = {
+    packages.myVimPackage = with pkgs.vimPlugins; {
+      start = [ ];
+    };
+  };
+}
 
   services.teamviewer.enable = true;
 
