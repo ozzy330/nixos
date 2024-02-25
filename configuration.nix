@@ -158,16 +158,15 @@
     end
   '';
 
-  # environment.shellAliases = {
-  # chnix = "nvim /etc/nixos/configuration.nix";
-  # swnix = "cmmnix $argv[1]; shift; sudo nixos-rebuild switch";
-  # };
-
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
   virtualisation.podman.enable = true;
 
+environment.systemPackages = with pkgs; [ nix-index ];
+programs.nix-ld.enable = true;
+programs.nix-ld.libraries = with pkgs; [
+];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
