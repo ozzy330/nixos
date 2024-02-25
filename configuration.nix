@@ -126,6 +126,7 @@
     moonlight-qt
     motrix
     telegram-desktop
+    stremio
   ];
 
   programs.neovim.enable = true;
