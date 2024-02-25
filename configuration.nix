@@ -100,6 +100,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    nix-index
     wget
     neovim
     kitty
@@ -163,7 +164,6 @@
 
   virtualisation.podman.enable = true;
 
-environment.systemPackages = with pkgs; [ nix-index ];
 programs.nix-ld.enable = true;
 programs.nix-ld.libraries = with pkgs; [
 ];
