@@ -168,7 +168,8 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc.lib
-    libgccjit
+    uclibc
+    liboil
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
