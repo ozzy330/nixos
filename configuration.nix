@@ -101,6 +101,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     nix-index
+    htop
     wget
     neovim
     kitty
@@ -164,9 +165,11 @@
 
   virtualisation.podman.enable = true;
 
-programs.nix-ld.enable = true;
-programs.nix-ld.libraries = with pkgs; [
-];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    libgccjit
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
