@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -104,8 +103,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    home-manager
-    nix-index
     htop
     wget
     neovim
@@ -137,8 +134,9 @@
     stremio
   ];
 
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
+  environment.variables.EDITOR = "nvim";
+  # programs.neovim.enable = true;
+  # programs.neovim.defaultEditor = true;
 
   programs.fish.enable = true;
   programs.starship.enable = true;
