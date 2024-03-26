@@ -7,6 +7,9 @@
     nodePackages.typescript-language-server
     nodePackages.tailwindcss
     tailwindcss-language-server
+    marksman
+    phpactor
+    asm-lsp
   ];
 
   programs.neovim = {
@@ -42,6 +45,10 @@
       oil-nvim
       nvim-colorizer-lua
       todo-comments-nvim
+      trouble-nvim
+      nabla-nvim
+      vim-table-mode
+      vim-markdown
     ];
     extraLuaConfig =  '' 
 

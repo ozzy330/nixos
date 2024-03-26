@@ -24,6 +24,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  services.openssh.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -96,6 +97,8 @@
     ];
   };
 
+  services.fprintd.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -109,6 +112,8 @@
     kitty
     gh
     git
+    git-lfs
+    nix-search-cli
     virt-viewer
     nodejs_21
     yarn
@@ -132,6 +137,7 @@
     telegram-desktop
     wpsoffice
     stremio
+    autokey
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -174,6 +180,33 @@
     uclibc
     liboil
   ];
+
+
+ networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+ services.httpd = {
+  enable = true;
+  enablePHP = true;
+  user = "ozzy330";
+  adminAddr = "webmaster@example.com";
+  extraConfig = ''
+      <Directory />
+        DirectoryIndex index.php
+        Require all granted
+      </Directory>
+  '';
+  virtualHosts = {
+    "example.com" = {
+      documentRoot = "/home/ozzy330/Documents/pveib.git/registro-Kevin";
+    };
+  };
+ };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

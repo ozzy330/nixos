@@ -29,6 +29,13 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     direnv
     lazygit
+    antimicrox
+    php
+    mariadb_110
+    nasm
+    SDL2
+    llvmPackages_17.clang-unwrapped
+    llvmPackages_17.libcxxClang
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -86,5 +93,6 @@
     userEmail = "oskar.quesada30@gmail.com";
 
   };
+
 
 }
