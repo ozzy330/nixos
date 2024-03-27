@@ -33,7 +33,6 @@
     php
     mariadb_110
     nasm
-    SDL2
     llvmPackages_17.clang-unwrapped
     llvmPackages_17.libcxxClang
 

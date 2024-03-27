@@ -31,6 +31,9 @@ vim.o.mouse = 'a'
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
+-- Use tabs for Makefiles
+vim.cmd('autocmd FileType make setlocal tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab')
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -237,6 +240,7 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   clangd = {},
+  asm_lsp = {},
   -- gopls = {},
   -- templ = {},
   -- pyright = {},
