@@ -36,7 +36,7 @@
       telescope-fzf-native-nvim
       plenary-nvim
       toggleterm-nvim
-      suda-vim
+      vim-suda
       lualine-nvim
       nvim-web-devicons
       toggleterm-nvim
@@ -57,7 +57,7 @@
     # '';
   };
 
-  home.file.".config/nvim/" = {
+  home.file."./.config/nvim/" = {
     source = ./nvim;
     recursive = true;
   };
