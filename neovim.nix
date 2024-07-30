@@ -56,12 +56,9 @@
     #
     # '';
   };
-  let
-    nvimPath = builtins.path { path = ./nvim; };
-  in
-  {
-  home.file."./.config/nvim/" = {
-    source = nvimPath;
+  home.file.nvim = {
+    source = ./my_nvim;
+    target = "./config/nvim/";
     recursive = true;
   };
 
