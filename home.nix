@@ -6,8 +6,7 @@
   home.stateVersion = "23.11";
 
   imports = [ 
-      ./neovim.nix
-      ./kitty.nix
+      ./config
     ];
 
   home.packages = with pkgs; [

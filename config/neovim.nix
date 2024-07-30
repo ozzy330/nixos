@@ -1,5 +1,11 @@
 { config, pkgs, lib, ... }:
 {
+  home.file.nvim = {
+    source = ../nvim;
+    target = "./config/nvim/";
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     lua-language-server
     vscode-langservers-extracted
@@ -49,17 +55,5 @@
       vim-table-mode
       vim-markdown
     ];
-    # extraLuaConfig =  '' 
-    #
-    #   ${builtins.readFile ( ./. + "/nvim/init.lua")}
-    #   ${builtins.readFile ( ./. + "/nvim/plugins/lualine.lua")}
-    #
-    # '';
   };
-  home.file.nvim = {
-    source = ./my_nvim;
-    target = "./config/nvim/";
-    recursive = true;
-  };
-
 }
