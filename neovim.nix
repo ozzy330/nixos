@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-
   home.packages = with pkgs; [
     lua-language-server
     vscode-langservers-extracted
@@ -10,8 +9,8 @@
     marksman
     phpactor
     asm-lsp
+    nil
   ];
-
   programs.neovim = {
     viAlias = true;
     vimAlias = true;
@@ -50,11 +49,16 @@
       vim-table-mode
       vim-markdown
     ];
-    extraLuaConfig =  '' 
+    # extraLuaConfig =  '' 
+    #
+    #   ${builtins.readFile ( ./. + "/nvim/init.lua")}
+    #   ${builtins.readFile ( ./. + "/nvim/plugins/lualine.lua")}
+    #
+    # '';
+  };
 
-      ${builtins.readFile ( ./. + "/nvim/init.lua")}
-      ${builtins.readFile ( ./. + "/nvim/plugins/lualine.lua")}
-
-    '';
+  home.file.".config/nvim/" = {
+    source = ./my_nvim;
+    recursive = true;
   };
 }

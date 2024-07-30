@@ -11,9 +11,9 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" "exfat"];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -56,8 +56,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -131,13 +131,12 @@
     podman
     qemu
     gnome.gnome-boxes
-    teamviewer
     moonlight-qt
     motrix
     telegram-desktop
     wpsoffice
     stremio
-    autokey
+    home-manager
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -180,32 +179,6 @@
     uclibc
     liboil
   ];
-
-
- networking.firewall.allowedTCPPorts = [ 80 443 ];
-
- services.httpd = {
-  enable = true;
-  enablePHP = true;
-  user = "ozzy330";
-  adminAddr = "webmaster@example.com";
-  extraConfig = ''
-      <Directory />
-        DirectoryIndex index.php
-        Require all granted
-      </Directory>
-  '';
-  virtualHosts = {
-    "example.com" = {
-      documentRoot = "/home/ozzy330/Documents/pveib.git/registro-Kevin";
-    };
-  };
- };
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
 
 
   # Some programs need SUID wrappers, can be configured further or are
