@@ -4,9 +4,6 @@ return {
 		version = '*',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		opt = {},
-		keys = {
-			{ 'n', '<leader>sg', ':Telescope live_grep<CR>', desc = '[S]earch [D]iagnostics' },
-		},
 	},
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',

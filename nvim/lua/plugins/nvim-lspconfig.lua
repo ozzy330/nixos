@@ -11,5 +11,6 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
+		'VonHeikemen/lsp-zero.nvim',
   },
 }

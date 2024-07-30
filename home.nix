@@ -21,6 +21,7 @@
     smartmontools
     figlet
     testdisk
+		pulseeffects-legacy
   ];
 
   home.file = {

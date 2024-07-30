@@ -79,7 +79,7 @@ vim.keymap.set('n', '<leader>sf', function() require('telescope.builtin').find_f
   { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
--- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- [[ Configure Treesitter ]]
@@ -216,6 +216,7 @@ local servers = {
   tsserver = {},
   eslint = {},
   tailwindcss = {},
+  nil_lsp = {},
   html = {},
   cssls = {},
   grammarly = {},
@@ -227,6 +228,29 @@ local servers = {
   },
 }
 
+	local lsp_zero = require('lsp-zero')
+
+	lsp_zero.on_attach(function(client, bufnr)
+		lsp_zero.default_keymaps({buffer = bufnr})
+	end)
+
+	lsp_zero.setup_servers({
+		'clangd',
+		'gopls',
+		'templ',
+		'pyright',
+		'phpactor',
+		'intelephense',
+		'tsserver',
+		'eslint',
+		'tailwindcss',
+		'nil_lsp',
+		'html',
+		'cssls',
+		'grammarly',
+	})
+
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -235,24 +259,24 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup mason so it can manage external tooling
-require('mason').setup()
+-- require('mason').setup()
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
-}
+-- local mason_lspconfig = require 'mason-lspconfig'
+--
+-- mason_lspconfig.setup {
+--   ensure_installed = vim.tbl_keys(servers),
+-- }
+--
+-- mason_lspconfig.setup_handlers {
+-- function(server_name)
+--   require('lspconfig')[server_name].setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = servers[server_name],
+--   }
+-- end
+-- }
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
