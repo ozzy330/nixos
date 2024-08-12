@@ -8,19 +8,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       lib = nixpkgs.lib;
-    in {
+    in
+    {
 
-      nixosConfigurations = { 
+      nixosConfigurations = {
         nixos = lib.nixosSystem {
-            inherit system;
-            modules = [ ./configuration.nix ];
-          };
+          inherit system;
+          modules = [ ./configuration.nix ];
         };
+      };
 
       homeConfigurations = {
         ozzy330 = home-manager.lib.homeManagerConfiguration {

@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -27,7 +27,10 @@
   services.openssh.enable = true;
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone.
   time.timeZone = "America/Costa_Rica";
@@ -89,10 +92,13 @@
   users.users.ozzy330 = {
     isNormalUser = true;
     description = "ozzy330";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -104,7 +110,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     htop
     wget
     neovim
@@ -114,7 +120,6 @@
     git-lfs
     nix-search-cli
     virt-viewer
-    yarn
     go
     python3
     libgccjit
@@ -178,6 +183,15 @@
     liboil
   ];
 
+  services.nginx = {
+    enable = true;
+    locations."/" = {
+      return = "200 '<html><body>It works</body></html>'";
+      extraConfig = ''
+        default_type text/html;
+      '';
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

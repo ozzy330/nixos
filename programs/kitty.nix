@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs.kitty = {
     enable = true;
     theme = "Snazzy";
-    font = { 
+    font = {
       name = "FiraCode Nerd Font";
     };
     extraConfig = "hide_window_decorations yes";

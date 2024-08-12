@@ -5,30 +5,29 @@
   home.homeDirectory = "/home/ozzy330";
   home.stateVersion = "23.11";
 
-  imports = [ 
-      ./config
-    ];
+  imports = [ ./programs ];
 
   home.packages = with pkgs; [
+    fd
+    ripgrep
     fira-code
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     direnv
     lazygit
-    nasm
-    llvmPackages_17.clang-unwrapped
-    llvmPackages_17.libcxxClang
     ventoy-full
     smartmontools
     figlet
     testdisk
-		pulseeffects-legacy
+    podman-compose
+    gnumake
+    nodejs_22
+    yarn
+    tftp-hpa
   ];
 
-  home.file = {
-  };
+  home.file = { };
 
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
   programs.gh.enable = true;
 
@@ -40,5 +39,10 @@
     extraConfig = {
       credential.helper = "oauth";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true; # Habilitar integración con fish
   };
 }
