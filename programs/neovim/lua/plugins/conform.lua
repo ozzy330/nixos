@@ -11,7 +11,17 @@ return {
 			json = { "prettierd" },
 			markdown = { "prettierd" },
 			typescript = { "prettier", "eslint_d" },
+			nasm = { "nasmfmt" },
 		},
+
+		formatters = {
+			nasmfmt = {
+				command = "nasmfmt",
+				args = { "$FILENAME" },
+				stdin = false,
+			},
+		},
+
 		format_on_save = {
 			-- These options will be passed to conform.format()
 			timeout_ms = 500,

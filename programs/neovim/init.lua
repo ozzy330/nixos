@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.options")
 require("config.keymaps")
+require("languages.nasm")
 
 -- Telescope
 -- require("telescope").setup({

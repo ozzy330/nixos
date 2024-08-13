@@ -185,13 +185,17 @@
 
   services.nginx = {
     enable = true;
-    locations."/" = {
-      return = "200 '<html><body>It works</body></html>'";
-      extraConfig = ''
-        default_type text/html;
-      '';
+    virtualHosts."blog.example.com" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/home/ozzy330/Documents/pveib/pveib.git/empresas-Oscar/";
     };
   };
+
+  security.acme.certs = {
+    "blog.example.com".email = "oskar.quesada30@gmail.com";
+  };
+  security.acme.acceptTerms = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

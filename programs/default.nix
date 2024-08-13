@@ -27,6 +27,10 @@
   };
 
   home.packages = with pkgs; [
+    # Extra
+    gcc
+    binutils
+    libgcc
     # Language Servers
     lua-language-server
     vscode-langservers-extracted
