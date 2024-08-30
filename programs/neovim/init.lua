@@ -63,6 +63,7 @@ require("telescope").setup({
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "bibtex")
 
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
@@ -202,9 +203,13 @@ lsp_zero.setup_servers({
 	"nil_ls",
 	"html",
 	"cssls",
-	"grammarly",
 	"asm_lsp",
 	"lua_ls",
+	"yamlls",
+	"gdscript",
+	"bashls",
+	"marksman",
+	"typst_lsp",
 })
 
 require("neodev").setup()

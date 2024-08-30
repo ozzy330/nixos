@@ -31,7 +31,12 @@
     gcc
     binutils
     libgcc
+    tree-sitter
     # Language Servers
+    ltex-ls
+    typst-lsp
+    nodePackages_latest.bash-language-server
+    nginx-language-server
     lua-language-server
     vscode-langservers-extracted
     nodePackages.typescript-language-server
@@ -42,15 +47,22 @@
     nil
     stylua
     asm-lsp
-    asmfmt
     ast-grep
     gopls
     phpactor
     typescript
     eslint_d
+    yaml-language-server
+    gdtoolkit_4
+    # Formatters
+    asmfmt
     prettierd
     nixfmt-rfc-style
     nasmfmt
+    nginx-config-formatter
+    yamllint
+    typstyle
+    nodePackages_latest.prettier
     # Plugins
   ];
 

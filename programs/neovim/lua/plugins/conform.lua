@@ -12,11 +12,25 @@ return {
 			markdown = { "prettierd" },
 			typescript = { "prettier", "eslint_d" },
 			nasm = { "nasmfmt" },
+			nginx = { "nginxfmt" },
+			yaml = { "prettier" },
+			gdscript = { "gdformat" },
+			typst = { "typstyle" },
 		},
 
 		formatters = {
 			nasmfmt = {
 				command = "nasmfmt",
+				args = { "$FILENAME" },
+				stdin = false,
+			},
+			nginxfmt = {
+				command = "nginxfmt",
+				args = { "$FILENAME" },
+				stdin = false,
+			},
+			gdformat = {
+				command = "gdformat",
 				args = { "$FILENAME" },
 				stdin = false,
 			},

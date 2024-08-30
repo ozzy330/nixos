@@ -140,7 +140,17 @@
     wpsoffice
     stremio
     home-manager
+    podman
+    typora
+    postman
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   environment.variables.EDITOR = "nvim";
   # programs.neovim.enable = true;
@@ -182,20 +192,6 @@
     uclibc
     liboil
   ];
-
-  services.nginx = {
-    enable = true;
-    virtualHosts."blog.example.com" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "/home/ozzy330/Documents/pveib/pveib.git/empresas-Oscar/";
-    };
-  };
-
-  security.acme.certs = {
-    "blog.example.com".email = "oskar.quesada30@gmail.com";
-  };
-  security.acme.acceptTerms = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

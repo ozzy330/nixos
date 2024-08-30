@@ -8,6 +8,7 @@
   imports = [ ./programs ];
 
   home.packages = with pkgs; [
+    font-awesome
     fd
     ripgrep
     fira-code
@@ -23,6 +24,14 @@
     nodejs_22
     yarn
     tftp-hpa
+    mariadb_110
+    godot_4
+    blender
+    f3d
+    gnome.sushi
+    pandoc
+    typst
+    rstudio
   ];
 
   home.file = { };
@@ -39,6 +48,7 @@
     extraConfig = {
       credential.helper = "oauth";
     };
+    lfs.enable = true;
   };
 
   programs.direnv = {
