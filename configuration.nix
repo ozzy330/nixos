@@ -159,27 +159,32 @@
   programs.fish.enable = true;
   programs.starship.enable = true;
   users.defaultUserShell = pkgs.fish;
-  programs.fish.shellInit = ''
-    function upnix
-      pushd ~/.config/nixos/
-        git push
-      popd
-    end
-    function cmmnix
-      pushd ~/.config/nixos/
-      git add configuration.nix
-      git commit -m $argv[1]
-      popd
-    end
-    function chnix
-      nvim /etc/nixos/configuration.nix
-    end
-    function swnix
-      cmmnix $argv[1]
-      set argv[1] ""
-      sudo nixos-rebuild switch
-    end
-  '';
+  programs.fish = {
+    shellInit = ''
+      function upnix
+        pushd ~/.config/nixos/
+          git push
+        popd
+      end
+      function cmmnix
+        pushd ~/.config/nixos/
+        git add configuration.nix
+        git commit -m $argv[1]
+        popd
+      end
+      function chnix
+        nvim /etc/nixos/configuration.nix
+      end
+      function swnix
+        cmmnix $argv[1]
+        set argv[1] ""
+        sudo nixos-rebuild switch
+      end
+    '';
+    shellInitLast = ''
+
+    '';
+  };
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;

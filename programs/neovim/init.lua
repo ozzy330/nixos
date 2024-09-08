@@ -195,7 +195,6 @@ lsp_zero.setup_servers({
 	"gopls",
 	"templ",
 	"pyright",
-	"phpactor",
 	"intelephense",
 	"tsserver",
 	"eslint_d",

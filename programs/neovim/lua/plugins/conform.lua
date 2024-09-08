@@ -16,6 +16,7 @@ return {
 			yaml = { "prettier" },
 			gdscript = { "gdformat" },
 			typst = { "typstyle" },
+			php = { "pint" },
 		},
 
 		formatters = {

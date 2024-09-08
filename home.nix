@@ -1,5 +1,27 @@
 { config, pkgs, ... }:
 
+with pkgs;
+let
+  R-with-my-packages = rWrapper.override {
+    packages = with rPackages; [
+      ggplot2
+      dplyr
+      xts
+      pacman
+      rio
+      tidyverse
+      arrow
+      hexView
+      fst
+      pzfx
+      rmatio
+      readODS
+      qs
+      conflicted
+    ];
+  };
+in
+
 {
   home.username = "ozzy330";
   home.homeDirectory = "/home/ozzy330";
@@ -31,14 +53,18 @@
     gnome.sushi
     pandoc
     typst
-    rstudio
+    R-with-my-packages
+    git-credential-oauth
   ];
 
   home.file = { };
 
   home.sessionVariables = { };
 
-  programs.gh.enable = true;
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
+  };
 
   programs.home-manager.enable = true;
   programs.git = {
@@ -46,7 +72,8 @@
     userName = "ozzy330";
     userEmail = "oskar.quesada30@gmail.com";
     extraConfig = {
-      credential.helper = "oauth";
+      credential.helper = "cache";
+      push.autoSetupRemote = true;
     };
     lfs.enable = true;
   };

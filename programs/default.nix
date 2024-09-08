@@ -26,6 +26,7 @@
     recursive = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # Extra
     gcc
@@ -34,6 +35,7 @@
     tree-sitter
     # Language Servers
     ltex-ls
+    nodePackages_latest.intelephense
     typst-lsp
     nodePackages_latest.bash-language-server
     nginx-language-server
