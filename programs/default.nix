@@ -56,6 +56,7 @@
     eslint_d
     yaml-language-server
     gdtoolkit_4
+    omnisharp-roslyn
     # Formatters
     asmfmt
     prettierd
@@ -65,6 +66,7 @@
     yamllint
     typstyle
     nodePackages_latest.prettier
+    csharpier
     # Plugins
   ];
 
@@ -76,6 +78,7 @@
       nvim-treesitter.withAllGrammars
       markdown-preview-nvim
       nvim-treesitter-parsers.nasm
+      omnisharp-extended-lsp-nvim
     ];
   };
 }

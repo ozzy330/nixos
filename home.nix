@@ -18,6 +18,11 @@ let
       readODS
       qs
       conflicted
+      gridExtra
+      tidyr
+      reshape2
+      RColorBrewer
+      ggrepel
     ];
   };
 in
@@ -30,7 +35,9 @@ in
   imports = [ ./programs ];
 
   home.packages = with pkgs; [
+    openvpn3
     font-awesome
+    times-newer-roman
     fd
     ripgrep
     fira-code
@@ -42,6 +49,7 @@ in
     figlet
     testdisk
     podman-compose
+    vesktop
     gnumake
     nodejs_22
     yarn
@@ -55,6 +63,16 @@ in
     typst
     R-with-my-packages
     git-credential-oauth
+    viu
+    youtube-music
+    xorg.xhost
+    krita
+    wireshark
+    p7zip
+    dotnet-sdk_8
+    sqlcmd
+    docker_27
+    vlc
   ];
 
   home.file = { };
@@ -80,6 +98,6 @@ in
 
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true; # Habilitar integración con fish
+    enableFishIntegration = true;
   };
 }

@@ -1,2 +1,3 @@
 # nixos
-NixOS config
+
+My NixOS configuration, using Flakes and Home Manager.

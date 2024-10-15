@@ -85,6 +85,19 @@
     #media-session.enable = true;
   };
 
+  # For intel GPUs
+  hardware.graphics = {
+    # hardware.opengl in 24.05
+    enable = true;
+    enable32Bit = true; # driSupport32Bit in 24.05
+    extraPackages = with pkgs; [ intel-compute-runtime ];
+  };
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -137,12 +150,16 @@
     moonlight-qt
     motrix
     telegram-desktop
-    wpsoffice
     stremio
     home-manager
     podman
     typora
     postman
+    ciscoPacketTracer8
+    davinci-resolve
+    vdhcoapp
+    clipgrab
+
   ];
 
   programs.steam = {
@@ -181,9 +198,6 @@
         sudo nixos-rebuild switch
       end
     '';
-    shellInitLast = ''
-
-    '';
   };
 
   virtualisation.libvirtd.enable = true;
@@ -196,6 +210,13 @@
     stdenv.cc.cc.lib
     uclibc
     liboil
+    glib
+    nss
+    nspr
+    dbus
+    atk
+    cups
+    libdrm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

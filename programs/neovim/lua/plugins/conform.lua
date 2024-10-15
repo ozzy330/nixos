@@ -17,6 +17,7 @@ return {
 			gdscript = { "gdformat" },
 			typst = { "typstyle" },
 			php = { "pint" },
+			cs = { "csharpier" },
 		},
 
 		formatters = {
