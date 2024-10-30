@@ -23,6 +23,8 @@ let
       reshape2
       RColorBrewer
       ggrepel
+      car
+      lsr
     ];
   };
 in
@@ -35,6 +37,9 @@ in
   imports = [ ./programs ];
 
   home.packages = with pkgs; [
+    spice
+    qemu
+    conda
     openvpn3
     font-awesome
     times-newer-roman

@@ -133,6 +133,7 @@
     git-lfs
     nix-search-cli
     virt-viewer
+    busybox
     go
     python3
     libgccjit
@@ -217,6 +218,30 @@
     atk
     cups
     libdrm
+    gtk3
+    gdk-pixbuf
+    glib
+    nss
+    nspr
+    dbus
+    atk
+    cups
+    libdrm
+    pango
+    cairo
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXrandr
+    xorg.libxcb
+    mesa
+    expat
+    libxkbcommon
+    alsaLib
+    openssl
+    iconv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

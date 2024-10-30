@@ -29,6 +29,7 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # Extra
+    bear
     gcc
     binutils
     libgcc
@@ -57,6 +58,7 @@
     yaml-language-server
     gdtoolkit_4
     omnisharp-roslyn
+    clang-tools
     # Formatters
     asmfmt
     prettierd
